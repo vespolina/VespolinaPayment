@@ -18,13 +18,13 @@ interface PaymentHandlerInterface
 
     /**
      * @param PaymentRequestInterface $paymentRequest
-     * @return Adjustment
+     * @return \Vespolina\Entity\Payment\TransactionInterface
      */
     function refund(PaymentRequestInterface $paymentRequest);
 
     /**
      * @param PaymentRequestInterface $paymentRequest
-     * @return Adjustment
+     * @return \Vespolina\Entity\Payment\TransactionInterface
      */
     function request(PaymentRequestInterface $paymentRequest);
 
