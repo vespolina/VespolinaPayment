@@ -2,52 +2,49 @@
 
 namespace Vespolina\Payment\Handler;
 
-use Vespolina\Entity\Partner\PaymentProfileInterface;
 use Vespolina\Entity\Payment\PaymentRequestInterface;
 
 interface PaymentHandlerInterface
 {
     /**
-     * Sets the partner reference in the PaymentProfile
-     *
      * @param PaymentProfileInterface $profile
      * @return mixed
      */
-    function authorize(PaymentProfileInterface $profile);
+    function authorize(PaymentRequestInterface $paymentRequest, PaymentContext $paymentContext);
 
     /**
      * @param PaymentRequestInterface $paymentRequest
      * @return \Vespolina\Entity\Payment\TransactionInterface
      */
-    function completeAuthorize(PaymentProfileInterface $profile);
+    function completeAuthorize(PaymentRequestInterface $paymentRequest, PaymentContext $paymentContext);
 
     /**
      * @param PaymentRequestInterface $paymentRequest
      * @return \Vespolina\Entity\Payment\TransactionInterface
      */
-    function capture(PaymentProfileInterface $profile);
+    function capture(PaymentRequestInterface $paymentRequest, PaymentContext $paymentContext);
 
     /**
      * @param PaymentRequestInterface $paymentRequest
      * @return \Vespolina\Entity\Payment\TransactionInterface
      */
-    function purchase(PaymentRequestInterface $paymentRequest);
+    function purchase(PaymentRequestInterface $paymentRequest, PaymentContext $paymentContext);
 
     /**
      * @param PaymentRequestInterface $paymentRequest
      * @return \Vespolina\Entity\Payment\TransactionInterface
      */
-    function completePurchase(PaymentRequestInterface $paymentRequest);
+    function completePurchase(PaymentRequestInterface $paymentRequest, PaymentContext $paymentContext);
 
     /**
      * @param PaymentRequestInterface $paymentRequest
      * @return \Vespolina\Entity\Payment\TransactionInterface
      */
-    function refund(PaymentRequestInterface $paymentRequest);
+    function refund(PaymentRequestInterface $paymentRequest, PaymentContext $paymentContext);
 
     /**
      * @param PaymentRequestInterface $paymentRequest
      * @return \Vespolina\Entity\Payment\TransactionInterface
      */
-    function void(PaymentRequestInterface $paymentRequest);
+    function void(PaymentRequestInterface $paymentRequest, PaymentContext $paymentContext);
 }
