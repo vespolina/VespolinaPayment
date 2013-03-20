@@ -2,6 +2,7 @@
 
 namespace Vespolina\Payment\Handler;
 
+use Vespolina\Entity\Payment\PaymentContext;
 use Vespolina\Entity\Payment\PaymentRequestInterface;
 
 interface PaymentHandlerInterface
