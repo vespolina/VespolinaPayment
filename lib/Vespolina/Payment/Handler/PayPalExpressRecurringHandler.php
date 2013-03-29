@@ -4,10 +4,11 @@ namespace Vespolina\Payment\Handler;
 
 use Omnipay\Common\GatewayInterface;
 use Vespolina\Entity\Payment\PaymentContext;
+use Vespolina\Entity\Payment\PaymentProfile\PayPalExpressRecurring;
 use Vespolina\Entity\Payment\PaymentRequestInterface;
 use Vespolina\Payment\Handler\PaymentHandlerInterface;
 
-class PayPalExpressHandler extends BasePaymentHandler
+class PayPalExpressRecurringHandler extends BasePaymentHandler
 {
     protected $cancelUrl;
     protected $gateway;
@@ -32,9 +33,19 @@ class PayPalExpressHandler extends BasePaymentHandler
     {
         // todo, check profile to make sure this isn't recurring and already set up with paypal
 
+        $recurringCharge = $paymentRequest->getPricingSet()->getRecurringCharge();
+
+        // todo: add custom data field to pass PaymentProfile Id
+        $data = array(
+            'amount' => $recurringCharge->getAmount(),
+            'cancelUrl' => $this->cancelUrl,
+            'currency' => $recurringCharge->getCurrency(),
+            'description' => '',
+            'returnUrl' => $this->returnUrl,
+        );
+
         $redirectResponse = $this->gateway->authorize($data)->send();
         $paymentContext->set('redirectResponse', $redirectResponse);
-
     }
 
     // Step 3:
@@ -43,10 +54,19 @@ class PayPalExpressHandler extends BasePaymentHandler
 
     }
 
+    public function createPaymentProfile()
+    {
+        return new PayPalExpressRecurring();
+    }
+
     // Step 4:
     public function purchase(PaymentRequestInterface $paymentRequest, PaymentContext $paymentContext)
     {
 
     }
 
+    public function getType()
+    {
+        return 'paypal_express_recurring';
+    }
 }
