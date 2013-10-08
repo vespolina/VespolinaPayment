@@ -4,6 +4,6 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                   http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="Vespolina\Entity\Partner\PaymentProfile\Invoice" table="vespolina_payment_profile_invoice">
+    <entity name="Vespolina\Entity\Payment\PaymentProfile\Invoice" table="vespolina_payment_profile_invoice">
     </entity>
 </doctrine-mapping>
