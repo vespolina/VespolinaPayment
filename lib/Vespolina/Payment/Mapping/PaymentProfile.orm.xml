@@ -4,12 +4,12 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                   http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="Vespolina\Entity\Partner\PaymentProfile" inheritance-type="SINGLE_TABLE"
+    <entity name="Vespolina\Entity\Payment\PaymentProfile" inheritance-type="SINGLE_TABLE"
             table="vespolina_payment_profile">
         <discriminator-column name="paymentProfile" type="string"/>
         <discriminator-map>
-            <discriminator-mapping value="creditCard" class="Vespolina\Entity\Partner\PaymentProfile\CreditCard"/>
-            <discriminator-mapping value="invoice" class="Vespolina\Entity\Partner\PaymentProfile\Invoice"/>
+            <discriminator-mapping value="creditCard" class="Vespolina\Entity\Payment\PaymentProfile\CreditCard"/>
+            <discriminator-mapping value="directDeposit" class="Vespolina\Entity\Payment\PaymentProfile\DirectDeposit"/>
         </discriminator-map>
 
         <id name="id" type="integer">
