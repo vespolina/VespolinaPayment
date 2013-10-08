@@ -4,6 +4,6 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                   http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="Vespolina\Entity\Partner\PaymentProfile\Bitcoin" table="vespolina_payment_profile_bitcoin">
+    <entity name="Vespolina\Entity\Payment\PaymentProfile\Bitcoin" table="vespolina_payment_profile_bitcoin">
     </entity>
 </doctrine-mapping>
