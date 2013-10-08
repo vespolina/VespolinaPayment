@@ -4,6 +4,6 @@
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                   http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="Vespolina\Entity\Partner\PaymentProfile\PayPal" table="vespolina_payment_profile_paypal">
+    <entity name="Vespolina\Entity\Payment\PaymentProfile\PayPal" table="vespolina_payment_profile_paypal">
     </entity>
 </doctrine-mapping>
